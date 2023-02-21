@@ -1,7 +1,7 @@
 #include "main.h"
 /*
  * print_alphabet - print lowercase alphabet
- * by Cromwell
+ * by Hamez
  */
 void print_alphabet(void)
 {
