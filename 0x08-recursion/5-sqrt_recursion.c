@@ -5,6 +5,7 @@
  * @root: The root to be tested
  * Return: int
  */
+
 int find_sqrt(int num, int root)
 {
 	if ((root * root) == num)
@@ -21,7 +22,8 @@ int find_sqrt(int num, int root)
  * @n: number to return the square root of
  * Return: int
  */
-int _sqrt_recursion(int n)
+
+int find_sqrt(int n)
 {
 	int root = 0;
 
