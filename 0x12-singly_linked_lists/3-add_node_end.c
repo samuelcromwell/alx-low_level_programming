@@ -2,39 +2,50 @@
 #include <string.h>
 
 /**
- * add_node_end - adds a new node at the end of a linked list
- * @head: double pointer to the list_t list
- * @str: string to add in the new node
+ * add_node_end - a function that adds a node to the end of linked list
+ * @head: pointer to a list_t pointer that points to the head struct
+ * @str: pointer to string that adds as node
  *
- * Return: address of the new element, or NULL if it failed
+ * Return: a pointer to new head of list, NULL on failure.
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *new;
-	list_t *temp = *head;
-	unsigned int len = 0;
+	list_t *top, *bottom;
+	int len_;
+	char *string_dup;
 
-	while (str[len])
-		len++;
-
-	new = malloc(sizeof(list_t));
-	if (!new)
+	top =  malloc(sizeof(list_t));
+	if (top == NULL)
+	{
 		return (NULL);
+	}
+	string_dup = strdup(str);
+	if (string_dup == NULL)
+	{
+		free(top);
+		return (NULL);
+	}
 
-	new->str = strdup(str);
-	 new->len = len;
-	  new->next = NULL;
+	len_ = 0;
+	while (str[len_])
+	{
+		len_++;
+	}
+	top->len = len_;
+	top->str = string_dup;
+	top->next = NULL;
 
-	  if (*head == NULL)
-	  {
-		  *head = new;
-		  return (new);
-	  }
+	if (*head == NULL)
+	{
+		*head = top;
+	}
+	else
+	{
+		bottom = *head;
+		while (bottom->next != NULL)
+			bottom = bottom->next;
+		bottom->next = top;
+	}
 
-	  while (temp->next)
-		  temp = temp->next;
-
-	  temp->next = new;
-
-	  return (new);
+	return (*head);
 }
