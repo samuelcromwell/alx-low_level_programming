@@ -8,20 +8,16 @@
 
 unsigned int binary_to_uint(const char *b)
 {
-unsigned int Number = 0;
-int n;
-
+int i;	
+unsigned int decimal_val = 0;
 if (!b)
 return (0);
 
-for (n = 0; b[n]; n++)
+for (i = 0; b[i]; i++)
 {
-if (b[n] < '0' || b[n] > '1')
-{
+if (b[i] < '0' || b[i] > '1')
 return (0);
+decimal_val = 2 * decimal_val + (b[i] - '0');
 }
-
-Number = 2 * Number + (b[n] - '0');
-}
-return (Number);
+return (decimal_val);
 }
