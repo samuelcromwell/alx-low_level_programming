@@ -1,1 +1,1 @@
-This is an ALX lw level programming directory for C language operations
+This is an ALX low level programming directory for C language operations
