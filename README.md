@@ -1,1 +1,1 @@
-More pointers, arrays and strings
+This is an ALX lw level programming directory for C language operations
